@@ -10,7 +10,7 @@ public class Multi {
 		rc.turnOff();
 		
 		Searchable sr = new SmartTelevision();
-		
+	
 		sr.search("https://www.youtube.com");
 	}
 
