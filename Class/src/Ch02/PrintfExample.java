@@ -1,19 +1,19 @@
-package Ch02;
+package ch02;
 
 public class PrintfExample {
 
 	public static void main(String[] args) {
 		int value = 123;
-		System.out.printf("상품의 가격:%d\n", value);
-		System.out.printf("상품의 가격:%6d\n", value);
-		System.out.printf("상품의 가격:%-6d\n", value);
-		System.out.printf("상품의 가격:%06d\n", value);
+		System.out.printf("?�품??가�?%d\n", value);
+		System.out.printf("?�품??가�?%6d\n", value);
+		System.out.printf("?�품??가�?%-6d\n", value);
+		System.out.printf("?�품??가�?%06d\n", value);
 		
 		double area = 3.141529 * 10 * 10;
-		System.out.printf("반지름의 길이가 %d인 원의 널이 : %10.2f\n" ,10 ,area);
+		System.out.printf("반�?름의 길이가 %d???�의 ?�이 : %10.2f\n" ,10 ,area);
 		
-		String name = "홍길동";
-		String job = "도적";
+		String name = "?�길??;
+		String job = "?�적";
 		System.out.printf("%6d | %-10s | %10s\n", 1, name, job);
 	}
 

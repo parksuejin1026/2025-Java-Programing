@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 public class Test2 {
 
@@ -37,9 +37,9 @@ public class Test2 {
 			english += score[i][1];
 		}
 		
-		System.out.printf("수학 점수의 최댓값 : %d, 수학 점수의 최솟값 : %d, 수학 점수의 평균 값 : %.2f \n",
+		System.out.printf("?�학 ?�수??최댓�?: %d, ?�학 ?�수??최솟�?: %d, ?�학 ?�수???�균 �?: %.2f \n",
 				Mmax, Mmin, math / 10);
-		System.out.printf("영어 점수의 최댓값 : %d, 영어 점수의 최솟값 : %d, 영어 점수의 평균 값 : %.2f \n",
+		System.out.printf("?�어 ?�수??최댓�?: %d, ?�어 ?�수??최솟�?: %d, ?�어 ?�수???�균 �?: %.2f \n",
 				Emax, Emin, english /10
 				);
 

@@ -1,4 +1,4 @@
-package Ch02;
+package ch02;
 
 import java.util.Scanner;
 
@@ -7,11 +7,11 @@ public class ScannerExample {
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("x 값 입력: ");
+		System.out.print("x �??�력: ");
 		String strX = scanner.nextLine();
 		int x = Integer.parseInt(strX);
 		
-		System.out.print("y 값 입력: ");
+		System.out.print("y �??�력: ");
 		String strY = scanner.nextLine();
 		int y = Integer.parseInt(strY);
 		
@@ -23,15 +23,15 @@ public class ScannerExample {
 		x = y;
 		y = temp;
 		
-		System.out.printf("x값은 : %d y값은 : %d\n", x, y);
+		System.out.printf("x값�? : %d y값�? : %d\n", x, y);
 		
 		while(true) {
-			System.out.print("입력 문자열: ");
+			System.out.print("?�력 문자?? ");
 			String data = scanner.nextLine();
 			if(data.equals("q")) {
 				break;
 			}
-			System.out.println("출력 문자열: " + data);
+			System.out.println("출력 문자?? " + data);
 			System.out.println();
 		}
 		

@@ -1,21 +1,21 @@
-package Ch09;
+package ch09;
 
 public class Car {
 	private String model;
-	private Engine engine; // Engine 클래스 호출
+	private Engine engine; // Engine ?�래???�출
 	
-	public Car(String model, int horsePower) { // horsePower인 이유는 Engine에서의 필드명이기 때문
+	public Car(String model, int horsePower) { // horsePower???�유??Engine?�서???�드명이�??�문
 		this.model = model;
-		this.engine = new Engine(horsePower); // 생성자를 생성 할 때 안에서 생성자를 만드는 느낌
+		this.engine = new Engine(horsePower); // ?�성?��? ?�성 ?????�에???�성?��? 만드???�낌
 	} 
 	
 	public void start() {
-		System.out.println(model + " 시동을 겁니다.");
+		System.out.println(model + " ?�동??겁니??");
 		engine.run();
 	}
 	
 	public void stop() {
-		System.out.println(model + " 시동을 끕니다.");
+		System.out.println(model + " ?�동???�니??");
 	}
 	
 	private class Engine {
@@ -26,7 +26,7 @@ public class Car {
 		}
 		
 		public void run() {
-			System.out.println("엔진이 가동 중입니다! (" + horsePower + "마력)");
+			System.out.println("?�진??가??중입?�다! (" + horsePower + "마력)");
 		}
 	}
 

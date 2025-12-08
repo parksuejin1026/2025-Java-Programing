@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import java.util.Scanner;
 
@@ -18,9 +18,9 @@ public class Test3Action {
 		
 		int[][]	score = new int[10][5];
 		for(int i = 0; i < score.length ; i++) {
-			System.out.print("학생의 이름을 입력해주세요 : ");
+			System.out.print("?�생???�름???�력?�주?�요 : ");
 			stuName = sc.next();
-			System.out.print("학생의 학번을 입력해주세요(ex:0000): ");
+			System.out.print("?�생???�번???�력?�주?�요(ex:0000): ");
 			stuNum = sc.nextInt();
 			t.Test3(stuName, stuNum);
 			randInt1 = (int)(Math.random()*40) + 60;

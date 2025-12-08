@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import java.util.Scanner;
 
@@ -10,16 +10,16 @@ public class calculator {
 		int num2;
 		int result = 0;
 		String operator;
-		System.out.println("---------- 사칙연산 계산기 ----------");
+		System.out.println("---------- ?�칙?�산 계산�?----------");
 		
 		while(true) {
-			System.out.print("첫 번째 값을 입력해주세요 : ");
+			System.out.print("�?번째 값을 ?�력?�주?�요 : ");
 			num1 = sc.nextInt();
 			while(true) {
-			System.out.print("두 번쨰 값을 입력해주세요 : ");
+			System.out.print("??번�? 값을 ?�력?�주?�요 : ");
 			num2 = sc.nextInt();
 			
-			System.out.print("연산자를 입력해주세요 : ");
+			System.out.print("?�산?��? ?�력?�주?�요 : ");
 			operator = sc.next();
 			
 			if(operator.equals("+")) {
@@ -36,7 +36,7 @@ public class calculator {
 			}
 			else if(operator.equals("/")) {
 				if(num2 == 0) {
-					System.out.println("0으로는 나눌 수 없습니다!");
+					System.out.println("0?�로???�눌 ???�습?�다!");
 					continue;
 				}
 				System.out.printf("%f / %f = %f\n", num1, num2, num1 / num2);

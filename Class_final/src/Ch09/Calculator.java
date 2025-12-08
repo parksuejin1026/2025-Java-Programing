@@ -1,10 +1,10 @@
-package Ch09;
+package ch09;
 
 public class Calculator {
 	public void calculate(int a, int b) {
-		System.out.println("== 계산 시작 ==");
+		System.out.println("== 계산 ?�작 ==");
 		
-		final String operator = "덧셈";
+		final String operator = "?�셈";
 		
 		class Operation {
 			public void add() {
@@ -21,9 +21,9 @@ public class Calculator {
 			
 			public void divide() {
 				if (b != 0) 
-					System.out.println("나눗셈 결과 : "  + ((double) a/b));
+					System.out.println("?�눗??결과 : "  + ((double) a/b));
 				else
-					System.out.println("0으로 나눌 수 없습니다.");
+					System.out.println("0?�로 ?�눌 ???�습?�다.");
 			}	
 		}
 		Operation op = new Operation();

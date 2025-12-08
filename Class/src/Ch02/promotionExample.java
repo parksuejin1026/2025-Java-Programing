@@ -1,4 +1,4 @@
-package Ch02;
+package ch02;
 
 public class promotionExample {
 
@@ -9,7 +9,7 @@ public class promotionExample {
 		
 		char charValue = '가';
 		intValue = charValue;
-		System.out.println("가의 유니코드: " + intValue);
+		System.out.println("가???�니코드: " + intValue);
 		
 		intValue = 50;
 		long longValue = intValue;

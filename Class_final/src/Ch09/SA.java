@@ -1,4 +1,4 @@
-package Ch09;
+package ch09;
 
 public class SA {
 	static class SB {}

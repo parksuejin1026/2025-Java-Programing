@@ -1,13 +1,13 @@
-package Ch02;
+package ch02;
 
 public class StringContactExample {
 
 	public static void main(String[] args) {
-		// 靾瀽 鞐办偘
+		// ?瀽 ?办偘
 		int result1 = 10 + 2 + 8;
 		System.out.println("result1: " + result1);
 		
-		// 瓴绊暕 鞐办偘
+		// 瓴绊暕 ?办偘
 		String result2 = 10 + 2 + "8";
 		System.out.println("result2: " + result2);
 		

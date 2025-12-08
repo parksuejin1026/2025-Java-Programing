@@ -1,7 +1,7 @@
-package Test;
+package test;
 
 public class Test3 {
-	// 필드 생성
+	// ?�드 ?�성
 	String student;
 	int studentNum = 0;
 	String[][] array = new String[10][8];

@@ -1,7 +1,7 @@
-package Ch09;
+package ch09;
 
 public class A {
-	// 인스턴스 맴버 클래스
+	// ?�스?�스 맴버 ?�래??
 	class B {
 		String BS = "";
 		
@@ -21,13 +21,13 @@ public class A {
 	
 	B field = new B();
 	
-	// A 생성자
+	// A ?�성??
 	A() {
 		B b = new B();
 		b.ShowBS();
 	}
 	
-	// 인스턴스 메서드
+	// ?�스?�스 메서??
 	void method() {
 		B b = new B("method");
 		b.ShowBS();

@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 public class Test1 {
 
@@ -12,11 +12,11 @@ public class Test1 {
 				System.out.printf("[%d] Success\n", intArray[i]);
 			}
 			catch (ArrayIndexOutOfBoundsException e) {
-				System.out.println("배열인덱스가 초과됨 " + e.getMessage() + e.toString()
+				System.out.println("배열?�덱?��? 초과??" + e.getMessage() + e.toString()
 				);
 			}
 			catch (NumberFormatException e) {
-				System.out.println("숫자로 변환할 수 없음 "
+				System.out.println("?�자�?변?�할 ???�음 "
 						+ "" + e.getMessage());
 			}
 			
