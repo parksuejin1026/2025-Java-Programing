@@ -7,86 +7,86 @@ import java.util.ArrayList;
  */
 public class LibraryService implements LibraryServiceContract {
     
-    private LibraryRepository repository; // LibraryRepository 클래스를 사용
+    private LibraryRepository repository;
     
     public LibraryService() {
-        this.repository = new LibraryRepository(); // Repository 객체 생성
+        this.repository = new LibraryRepository();
     }
     
-    /**
-     * [⭐ 통합 검색 헬퍼 메서드] ID 또는 제목으로 책을 찾습니다.
-     * ID 검색을 먼저 시도하고, 실패하면 제목 검색을 시도하여 유연성을 확보합니다.
-     */
-    private Book findBook(String searchKey) {
-        // 1. ID(ISBN)로 먼저 검색 시도
-        Book book = repository.findByIsbn(searchKey);
-        
-        // 2. ID로 찾지 못했으면, 제목으로 검색 시도
-        if (book == null) {
+    private Book findBook(String searchKey) { // 책 찾는 메서드
+        Book book = repository.findByIsbn(searchKey); // ID를 조사하여 존재한다면 book 객체에 책 정보 저장
+        if (book == null) { // 만약 ID를 입력하지 않았다면 책의 이름을 조사한다.
             book = repository.findByTitle(searchKey);
         }
-        
-        return book;
+        return book; 
     }
     
+    // ----------------------------------------------------
+    // registerBook: 오류 시 throws BookException
+    // ----------------------------------------------------
     @Override
-    public String registerBook(String title, String author, String isbn) { // 도서 등록하기
-        if (ValidationUtil.isEmpty(title) || ValidationUtil.isEmpty(isbn)) { // 제목, ID는 필수 입력 항목이기 때문에 공백이면 안됨
-            return "[❌ 오류] 제목과 ID는 필수 입력 항목입니다.";
+    public void registerBook(String title, String author, String isbn) throws BookException {
+        if (ValidationUtil.isEmpty(title) || ValidationUtil.isEmpty(isbn)) { // 제목과 ID가 공백이 아닌 지 확인
+            throw new BookException("제목과 ID는 필수 입력 항목입니다."); // 둘 다 공백이면 오류 메시지 출력
         }
         
-        if (repository.findByIsbn(isbn) != null) { // ID가 이미 등록되어 있다면 등록 불가
-            return "[❌ 오류] 이미 등록된 ID입니다.";
+        if (repository.findByIsbn(isbn) != null) {            
+            throw new BookException("이미 등록된 ID입니다."); // 책의 ID는 같기때문에 굳이 제목 예외까지는 추가안함
         }
         
-        Book newBook = new Book(title, author, isbn, false); // 모든 절차가 완료되었다면 Book 클래스의 생성자 사용
-        repository.save(newBook); // 도서 저장소에 등록하기 
-        return "✅ 도서 등록 완료: " + title; // 도서 등록 완료 메시지 + 도서 제목
+        // 정상 처리 시: 성공 메시지 출력 없이 종료 (App에서 성공 메시지 출력)
+        Book newBook = new Book(title, author, isbn, false); 
+        repository.save(newBook); // 도서 등록하기
     }
     
-    
-    @Override // 도서를 제목 또는 ID로 빌리는 메서드
-    public String rentBook(String searchKey) {
-        if (ValidationUtil.isEmpty(searchKey)) {
-            return "[❌ 오류] ID나 제목을 입력해 주세요.";
+    // ----------------------------------------------------
+    // rentBook: 오류 시 throws BookException
+    // ----------------------------------------------------
+    @Override 
+    public void rentBook(String searchKey) throws BookException { // 도서 대여하기
+        if (ValidationUtil.isEmpty(searchKey)) { // 제목과 ID가 공백이라면
+            throw new BookException("ID나 제목을 입력해 주세요."); // 오류 메시지 호출
         }
 
-        Book book = findBook(searchKey); // 통합 검색 사용
+        Book book = findBook(searchKey); // ID와 제목을 조사하여 도서가 존재한다면 book 객체에 데이터 저장
         
-        if (book == null) { // 해당하는 책이 없다면
-            return "[❌ 오류] 해당 ID 또는 제목의 도서를 찾을 수 없습니다.";
+        if (book == null) { // 맞는 값이 없다면 리턴하지못해 공백으로 출력
+            throw new BookException("해당 ID 또는 제목의 도서를 찾을 수 없습니다.");
         }
         
-        if (book.isRented()) { // 책을 이미 빌리고 있다면
-            return "[❌ 오류] '" + book.getTitle() + "'는 이미 대여 중입니다.";
+        if (book.isRented()) { // findBook으로 책의 제목을 출력받아 그 책의 대여상태 체크
+            throw new BookException("'" + book.getTitle() + "'는 이미 대여 중입니다."); // 대여상태라면 오류 메시지 출력
         }
         
-        book.setRented(true); // isRented 필드를 true로 변경하여 도서 대여 상태로 변경
-        return "✅ 대여 성공: '" + book.getTitle() + "'";
+        // 정상 처리 시: 성공 메시지 출력 없이 종료
+        book.setRented(true); 
     }
     
-    @Override // 도서를 제목 또는 ID로 반납하는 메서드
-    public String returnBook(String searchKey) { 
-        if (ValidationUtil.isEmpty(searchKey)) {
-            return "[❌ 오류] ID나 제목을 입력해 주세요.";
+    // ----------------------------------------------------
+    // returnBook: 오류 시 throws BookException
+    // ----------------------------------------------------
+    @Override
+    public void returnBook(String searchKey) throws BookException { // 도서 반납하기
+        if (ValidationUtil.isEmpty(searchKey)) { // 공백을 입력하지 않았는 지 확인
+            throw new BookException("ID나 제목을 입력해 주세요."); // 공백이라면 오류 메시지 출력
         }
 
-        Book book = findBook(searchKey); // 통합 검색 사용
+        Book book = findBook(searchKey); // ID와 제목을 조사하여 도서가 존재한다면 book 객체에 데이터 저장
 
-        if (book == null) {
-            return "[❌ 오류] 해당 ID 또는 제목의 도서를 찾을 수 없습니다.";
+        if (book == null) { 
+            throw new BookException("해당 ID 또는 제목의 도서를 찾을 수 없습니다."); // 호출할 오류 메시지
         }
 
-        if (!book.isRented()) {
-            return "[❌ 오류] '" + book.getTitle() + "'는 대여 상태가 아닙니다.";
+        if (!book.isRented()) { // isRented가 false 일 때(대여 상태가 아닐 때) 오류메시지 출력
+            throw new BookException("'" + book.getTitle() + "'는 대여 상태가 아닙니다."); 
         }
         
-        book.setRented(false);  // isRented 필드를 false로 변경하여 도서 반납 상태로 변경
-        return "✅ 반납 성공: '" + book.getTitle() + "'.";
+
+        book.setRented(false); // 반납 처리 완료 상태로 변경
     }
 
     @Override
-    public ArrayList<Book> getAllBooks() { // 도서 목록 전체 반환
-        return repository.findAll();
+    public ArrayList<Book> getAllBooks() { // 모든 책을 출력하는 getter 메서드
+        return repository.findAll(); // 저장되어 있는 책의 모든 필드 출력
     }
 }
