@@ -14,7 +14,7 @@ public class Book { // 책의 데이터 저장
         this.isRented = isRented;
     }
 
-    // 2. Getter (접근자): private 필드의 값을 안전하게 반환합니다.
+    // 2. Getter 메서드 제목, 도서번호, 대여상태 반환
     public String getTitle() {
         return title;
     }
@@ -27,7 +27,7 @@ public class Book { // 책의 데이터 저장
         return isRented;
     }
 
-    // 3. Setter (설정자): 대여 상태만 변경 가능하도록 합니다.
+    // Setter 메서드 대여 상태 설정
     public void setRented(boolean isRented) {
         this.isRented = isRented;
     }
