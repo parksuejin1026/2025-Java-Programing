@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class LibraryRepository { // 도서 데이터를 ArrayList를 이용하여 저장하는 클래스
 	// Book 클래스의 객체를 저장하는 리스트 생성
-    private ArrayList<Book> books = new ArrayList<>(); // 도서 목록을 저장하는 배열 생성
+    private ArrayList<Book> books = new ArrayList<>(); // 도서 목록을 저장하는 리스트 생성
     
     public LibraryRepository() { // 제목, 저자, 도서 ID, 도서 대여 상태(false면 보유 중)
         books.add(new Book("총, 균, 쇠", "재레드 다이아몬드", "1001", false)); 
