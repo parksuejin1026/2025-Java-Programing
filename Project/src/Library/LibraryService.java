@@ -26,7 +26,7 @@ public class LibraryService implements LibraryServiceContract {
     // ----------------------------------------------------
     @Override
     public void registerBook(String title, String author, String isbn) throws BookException {
-        if (ValidationUtil.isEmpty(title) || ValidationUtil.isEmpty(isbn)) { // 제목과 ID가 공백이 아닌 지 확인
+        if (ValidationUtil.isEmpty(title) || ValidationUtil.isEmpty(isbn)) { // 제목과 ID가 공백이 아닌 지 확인 
             throw new BookException("제목과 ID는 필수 입력 항목입니다."); // 둘 다 공백이면 오류 메시지 출력
         }
         
