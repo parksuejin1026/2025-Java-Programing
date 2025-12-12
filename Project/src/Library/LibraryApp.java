@@ -20,6 +20,7 @@ public class LibraryApp { // 실행 클래스
         System.out.println("==========================================");
         
         while (true) { // 무한루프
+            System.out.println(); // ★ 수정: 이전 명령어의 결과와 메뉴를 분리하기 위해 빈 줄을 추가
             printMenu(); 
             String command = scanner.nextLine();
             
@@ -34,7 +35,8 @@ public class LibraryApp { // 실행 클래스
     }
     
     private void printMenu() { // 메뉴 출력
-        System.out.println("\n 원하는 기능의 번호를 입력해주세요");
+        // System.out.println("\n 원하는 기능의 번호를 입력해주세요"); // ★ 수정: start()에서 줄 바꿈을 처리했으므로 여기서는 \n을 제거
+        System.out.println(" 원하는 기능의 번호를 입력해주세요");
         System.out.println("1. 도서 등록");
         System.out.println("2. 도서 대여");
         System.out.println("3. 전체 도서 목록 조회");
