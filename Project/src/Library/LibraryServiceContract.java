@@ -8,13 +8,13 @@ import java.util.ArrayList;
  */
 public interface LibraryServiceContract {
     
-    // String 반환 대신 void로 변경하고, throws BookException을 선언
+    // 도서 등록 메서드, throws BookException을 선언
     void registerBook(String title, String author, String isbn) throws BookException;
     
-    // String 반환 대신 void로 변경하고, throws BookException을 선언
+    // 도서 대여 메서드, throws BookException을 선언
     void rentBook(String isbn) throws BookException;
     
-    // String 반환 대신 void로 변경하고, throws BookException을 선언
+    // 도서 반납 메서드, throws BookException을 선언
     void returnBook(String isbn) throws BookException;
     
     ArrayList<Book> getAllBooks();
