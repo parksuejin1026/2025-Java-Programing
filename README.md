@@ -1,6 +1,4 @@
 # 2025-Java-Programing
 2025년 2학기 자바프로그래밍 수업<br>
-git config --global user.name "parksuejin1026"<br>
-git config --global user.email "suejin1026suejin@gmail.com"<br>
-git init<br>
-git remote add origin https://github.com/parksuejin1026/2025-Java-Programing.git<br>
+PPT
+<p>https://docs.google.com/presentation/d/1kvrcGPUnkA2qIjnCPWraQoIdp55kMQpgP45ZUE2U7h0/edit?slide=id.g3a6c1f91c3d_0_0#slide=id.g3a6c1f91c3d_0_0</p>
