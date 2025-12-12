@@ -32,8 +32,7 @@ public class Book {
         this.isRented = isRented;
     }
 
-    // 4. 객체의 정보를 읽기 쉬운 문자열로 반환합니다.
-    @Override
+    // 4. 객체의 정보를 읽기 쉬운 문자열로 반환
     public String toString() {
         String status = isRented ? "❌ 대여 중" : "⭕️ 대여 가능"; // 삼항연산자
         return String.format("제목: %s | 저자: %s | ISBN: %s | 상태: %s", title, author, isbn, status);

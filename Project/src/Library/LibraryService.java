@@ -2,9 +2,7 @@ package Library;
 
 import java.util.ArrayList;
 
-/**
- * 도서관의 비즈니스 로직(규칙)을 처리하는 서비스 클래스입니다.
- */
+
 public class LibraryService implements LibraryServiceContract {
     
     private LibraryRepository repository;

@@ -13,7 +13,7 @@ public class LibraryRepository { // 도서 데이터를 ArrayList를 이용하�
     
     // 도서 등록하기
     public void save(Book book) {
-        books.add(book); // 배열에 도서 저장 제목, 저자, 도서 ID, 도서 대여 상태
+        books.add(book); // 리스트에 도서 저장 제목, 저자, 도서 ID, 도서 대여 상태
     }
     
     /**
